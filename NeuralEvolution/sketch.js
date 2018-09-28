@@ -1,15 +1,17 @@
-let slider;
+var neuralevolution = new neuralevolution();
 
 function setup() {
-  createCanvas(600, 600);
-  slider = createSlider(1, 100, 1);
-  let popu = Neuroevolution(self.options.population);
-  popu(10);
-  console.log(popu);
+  //createCanvas(600, 600);
+  //let popu = new Neuroevolution();
+  neuralevolution.options[1] = 1;
+  console.log(neuralevolution.options[1]);
+
+  // how to change population size
+  // popu.options[2] = 10;
+  
 }
 
 function draw() {
-  background(0);
-  console.log()
+  background(255);
 
 }

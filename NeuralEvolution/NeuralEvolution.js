@@ -2,7 +2,7 @@ var Neuroevolution = function(options) {
   var self = this;
   self.options = [
 
-    // Sigmoid - run in EVERY neuron
+    //Sigmoid - run in EVERY neuron
     activation = function(a) {
       ap = (-a) / 1;
       return (1 / (1 + Math.exp(ap)))
@@ -11,6 +11,7 @@ var Neuroevolution = function(options) {
     randomClamped = function() {
       return Math.random() * 2 - 1
     },
+    // .options[2]
     population = 50,
     elitism = 0.2, // 20% chance to mutate
     randomBehavior = 0.2,
