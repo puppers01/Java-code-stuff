@@ -73,7 +73,7 @@ var Neuroevolution = function(options) {
     var index = 0;
     var previousNeurons = 0;
     var layers = new Layer(index);
-    layer.populate(input, previousNeurons);
+    layers.populate(input, previousNeurons);
     this.layers.push(layer);
     index++;
     // Hidden Layer
