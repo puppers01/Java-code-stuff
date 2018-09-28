@@ -72,8 +72,8 @@ var Neuroevolution = function(options) {
     // Input Layer
     var index = 0;
     var previousNeurons = 0;
-    var layers = new Layer(index);
-    layers.populate(input, previousNeurons);
+    var layer = new Layer(index);
+    layer.populate(input, previousNeurons);
     this.layers.push(layer);
     index++;
     // Hidden Layer
@@ -99,7 +99,7 @@ var Neuroevolution = function(options) {
       }
     }
     var prevLayer = this.layers[0];
-    // iterate through neurons in layer
+    // iterate through neurons in 'layers'
     for (var i = 1; i < this.layers.length; i++) {
       var sum = 0;
       for (var j in this.layers[i].neurons) {
