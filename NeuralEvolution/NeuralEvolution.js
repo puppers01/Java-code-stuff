@@ -5,24 +5,24 @@ var Neuroevolution = function(options) {
   self.options = [
 
     // Sigmoid - run in EVERY neuron
-    activation:function(a) {
+    activation = function(a) {
       ap = (-a) / 1;
       return (1 / (1 + Math.exp(ap)))
     },
 
-    randomClamped function() {
+    randomClamped = function() {
       return Math.random() * 2 - 1
     },
-    population:50,
-    elitism:0.2, // 20% chance to mutate
-    randomBehavior:0.2,
-    mutationRate:0.1,
-    mutationRange:0.5,
-    network:[1, [1], 1],
-    historic:0,
-    lowHistoric:false,
-    scoreSort:-1, // order of sort
-    nbChild:1
+    population = 50,
+    elitism = 0.2, // 20% chance to mutate
+    randomBehavior = 0.2,
+    mutationRate = 0.1,
+    mutationRange = 0.5,
+    network = [1, [1], 1],
+    historic = 0,
+    lowHistoric = false,
+    scoreSort = -1, // order of sort
+    nbChild = 1
   ]
 
   //initalize set variables to have options available
