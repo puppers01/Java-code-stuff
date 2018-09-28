@@ -1,10 +1,10 @@
-var neuralevolution = new neuralevolution();
+var neuroevolution = new Neuroevolution(self.options);
 
 function setup() {
   //createCanvas(600, 600);
   //let popu = new Neuroevolution();
-  neuralevolution.options[1] = 1;
-  console.log(neuralevolution.options[1]);
+  console.log(activation(1));
+  console.log(neuroevolution.options[0]);
 
   // how to change population size
   // popu.options[2] = 10;
