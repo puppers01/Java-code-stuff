@@ -1,26 +1,52 @@
-var neuroevolution = new NeuralEvolution(self.options);
-var objects = []; // Array of objects
-var popsize = 50;      // Population Size
+var neuroevolution = new Neuroevolution(self.options);
+var objects = []; // Array of circles
+var otherObjects = []; // Array of blocks
+var popsize = 5;      // Population Size
 var numInputs = 0;
 var numHiddens = 0;
 var numOutputs = 0;
+var counter = 0;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(550, 450);
 
-  console.log(neuroevolution);
+  for (let i = 0; i < popsize; i++) {
+    objects[i] = new Bird();
+  }
 
-  neuroevolution.options[0] = numInputs; // # of inputs
-    console.log(neuroevolution.options[0]);
-  neuroevolution.options[1] = numHiddens; // # of hiddens
-    console.log(neuroevolution.options[1]);
-  neuroevolution.options[2] = numOutputs; // # of outputs
-    console.log(neuroevolution.options[2]);
-  neuroevolution.options[3] = popsize; // population size
-    console.log(neuroevolution.options[3]);
-  
+  //console.log(neuro.options[2]);
+
 }
 
 function draw() {
   background(0);
+
+  
+
+  if (counter % 75 == 0){
+    otherObjects.push(new Pipe());
+  }
+  counter++;
+
+  for (let i = otherObjects.length - 1; i >= 0; i--) {
+    otherObjects[i].update();
+
+    //if (otherObjects[i].offscreen()) {
+    //  otherObjects.splice(i, 1);
+    //}
+
+    //if(objects[i].offScreen()) {
+    //  objects.splice(i, 1);
+    //}
+  }
+
+  for (let bird of objects) {
+    bird.think(otherObjects);
+    bird.show();
+    bird.update();
+  }
+
+  for (let pipe of otherObjects) {
+    pipe.show();
+  }
 }
