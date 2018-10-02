@@ -1,0 +1,29 @@
+ Create NeuralEvolution
+ Create Neuron
+ Create Layer
+ Create Genome
+ Create Generations
+
+ How to call options
+
+ HELP:
+
+  Initialize 
+  var Name = new Neuroevolution(self.inputs); 
+
+ LIST OF OPTIONS
+  //sigmoid function
+  *call to change value 
+    'varName.options[0] = #;'
+  run function
+    'activation(#);
+
+  //randomize function
+  *call to change value
+    'varName.options[1] = #;'
+  run randomizer
+    'randomClamped(#);'
+  
+  //population size
+  call to change value  
+    'varName.options[2] = #;'
