@@ -5,6 +5,7 @@ function Ship() {
   this.rotation = 0;
   this.vel = createVector(0, 0);
   this.isBoosting = false;
+  this.brain = new NeuralNetwork(5, 8, 2);
 
   this.boosting = function(b) {
     this.isBoosting = b;
@@ -62,5 +63,28 @@ function Ship() {
 
   this.turn = function() {
     this.heading += this.rotation;
+  }
+
+  this.think = function (asteroid) {
+    //find closest asteroid
+    let closest = null;
+    let closestD = Infinity;
+    for (let i = 0; i < asteroids.length; i++) {
+      let d = (asteroids[i].x + asteroids[i].r) - this.x;
+      if (d < closestD && d > 0) {
+        closest = asteroids[i];
+        closestD = d;
+      }
+    }
+
+    let inputs = [];
+    inputs[0] = asteroids.pos.x - this.x;
+    inputs[1] = asteroids.pos.y - this.y;
+    inputs[2] = asteroids.vel - this.vel;
+    let ouput = this.brain.predict(inputs);
+    if (output[0] > output[1] && this.velocity >= 0) {
+      this.boost();
+    }
+
   }
 }
